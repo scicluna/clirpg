@@ -1,9 +1,10 @@
 from gameelement import GameElement
-from classes.locations.choices import Choices, Choice
+from classes.locations.choices import Choices
+from ..entities.player import Player
 
 
 class Event(GameElement):
-    def __init__(self, description: str, choices: Choices, player):
+    def __init__(self, description: str, choices: Choices, player: Player):
         self.description = description
         self.choices = choices
         self.player = player
