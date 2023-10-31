@@ -1,0 +1,35 @@
+Game Goal: Get to the end of the "board" with the most gold possible
+
+Two game segments:
+
+Overworld/Dungeons---Events/Random Encounters
+    a series of linked nodes
+    each node has an event or an encounter
+    encounters use battle mechanics
+    events are decisions and/or resource taxes and sometimes oppportunities
+        MUST---make cli options for which node the player travels to
+            ---make battle mechanics/player stats/monster stats/inventories/spells/etc...
+            ---make event interface prompts with multiple options each of which effects character status/inventory
+            ---afterwards, there should be another node choice or the player should be pushed to the next space
+
+Town---Shopping/Rest/Information
+    big menu of things to do
+    optional quests to pick up
+    ability to rest at an inn to restore hp/mp for gold
+    ability to tour a variety of shops depending on the location and make purchases to boost player power or pass utility events
+    taverns to play an investigation minigame at (lots of dialogue)
+        MUST---make town main cli menu to choose what activities the player wants to do and provide a town exit
+            ---create tailored quests per each town to relate to the upcoming trail
+            ---quest complete conditions
+            ---interface with player status/inventory 
+            ---create hand tailored shops and items
+            ---create dialogue trees that a player can use to gain hints for the road ahead
+
+Main Systems:
+    Player Status
+    Items/Inventory
+    Node Traversals
+    Dialogue Trees
+    Magic
+    Recovery
+    Status effects
