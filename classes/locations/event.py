@@ -3,15 +3,16 @@ from classes.locations.choices import Choices, Choice
 
 
 class Event(GameElement):
-    def __init__(self, description: str, choices: Choices):
+    def __init__(self, description: str, choices: Choices, player):
         self.description = description
         self.choices = choices
+        self.player = player
 
     def trigger(self):
         # Present the event to the player
         print(self.description)
+        self.choices.display_choices()
 
-    def resolve_choice(self, choice: Choice):
+    def resolve_choice(self, choice: int):
         # Handle the outcome based on the player's choice
-        outcome = self.choices.get(choice).outcome
-        print(outcome)
+        self.choices.choose(choice, self.player)

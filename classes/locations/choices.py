@@ -24,3 +24,13 @@ class Choice:
 class Choices:
     def __init__(self, choices: list):
         self.choices = choices
+
+    def display_choices(self):
+        """Display all choices."""
+        for index, choice in enumerate(self.choices):
+            print(f"{index + 1}: {choice.description}")
+
+    def choose(self, choice: int, player):
+        """Apply the outcome of a choice."""
+        self.choices[choice - 1].outcome.apply(player)
+        print(f"{self.choices[choice - 1].description}")
