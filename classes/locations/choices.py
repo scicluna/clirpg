@@ -1,18 +1,43 @@
+from classes.entities.monster import Monster
+from classes.locations.encounter import Encounter
+from ..entities.player import Player
+
+
 class EventOutcome:
-    def __init__(self, description: str, health_change=0, gold_change=0, item=None, special_effect=None):
+    def __init__(self,
+                 description: str,
+                 health_change: int = 0,
+                 gold_change: int = 0,
+                 items: list[str] = None,
+                 special_effect=None,
+                 attacks: list[str] = None,
+                 spells: list[str] = None,
+                 monsters: list[Monster] = None):
         self.description = description
         self.health_change = health_change
         self.gold_change = gold_change
-        self.item = item
+        self.items = items if items is not None else []
         self.special_effect = special_effect
+        self.attacks = attacks if attacks is not None else []
+        self.spells = spells if spells is not None else []
+        self.monsters = monsters
 
-    def apply(self, player):
+    def apply(self, player: Player):
         """Apply the outcome to a player."""
         print(self.description)
         player.health += self.health_change
         player.gold += self.gold_change
-        # Handle special_effect if needed
-        # Handle item methods if needed
+        player.special_status = self.special_effect
+        for item in self.items:
+            player.add_items(item)
+        for attack in self.attacks:
+            player.add_attack(attack)
+        for spell in self.spells:
+            player.add_magic(spell)
+
+        if self.monsters:
+            encounter = Encounter(self.monsters, player)
+            encounter.trigger()
 
 
 class Choice:
@@ -30,7 +55,7 @@ class Choices:
         for index, choice in enumerate(self.choices):
             print(f"{index + 1}: {choice.description}")
 
-    def choose(self, choice: int, player):
+    def choose(self, choice: int, player: Player):
         """Apply the outcome of a choice."""
         self.choices[choice - 1].outcome.apply(player)
         print(f"{self.choices[choice - 1].description}")

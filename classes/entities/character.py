@@ -6,6 +6,7 @@ class Character:
         self.defense = defense
         self.gold = gold
         self.inventory = inventory if inventory else []
+        self.special_status = None
 
     def take_damage(self, damage: int) -> int:
         """Reduces the character's hp by the given damage, after accounting for defense. Returns the net damage dealt."""
@@ -22,10 +23,9 @@ class Character:
         """Checks if the character is still alive."""
         return self.hp > 0
 
-    def add_items(self, items: list):
-        """Adds items to the character's inventory."""
-        for item in items:
-            self.inventory.append(item)
+    def add_items(self, item: str):
+        """Adds item to the character's inventory."""
+        self.inventory.append(item)
 
     def remove_from_inventory(self, item):
         """Removes an item from the character's inventory."""

@@ -20,12 +20,14 @@ def open_magic_menu(current_character: Character, target: Character):
 def firebolt(caster: "Character", target: "Character") -> int:
     """Casts a firebolt spell on a target. Returns the damage dealt."""
     damage = 10  # Some formula for calculating firebolt damage
+    caster.mp -= 5
     return target.take_damage(damage)
 
 
 def heal(caster: "Character", target: "Character") -> int:
     """Heals the target. Returns the amount healed."""
     healing = 5  # Some formula for calculating healing
+    caster.mp -= 5
     target.hp += healing
     return healing  # this could be useful if you want to print how much was healed
 
