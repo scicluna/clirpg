@@ -1,5 +1,5 @@
-from classes.entities.monster import Monster
-from classes.entities.player import Player
+from ...classes.entities.monster import Monster
+from ...classes.entities.player import Player
 from ...classes.locations.event import Event
 from ...classes.locations.choices import Choices, Choice, EventOutcome
 
@@ -9,10 +9,12 @@ def create_t1_events(player: Player):
         "starting_town": Event(
             "You're about to leave town! What do you bring with you?",
             Choices([
-                Choice("My trusty shovel", EventOutcome(items=["shovel"])),
+                Choice("My trusty shovel", EventOutcome(
+                    description="I grab my shovel", items=["shovel"])),
                 Choice("I take my trusty dagger",
-                       EventOutcome(items=["dagger"])),
-                Choice("I take some gold coins", EventOutcome(gold_change=2))
+                       EventOutcome(description="I grab my dagger", items=["dagger"])),
+                Choice("I take some gold coins", EventOutcome(
+                    description="I grab the gold", gold_change=2))
             ]),
             player
         ),

@@ -1,4 +1,4 @@
-from gameelement import GameElement
+from .gameelement import GameElement
 
 
 class Node:

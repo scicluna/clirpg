@@ -1,4 +1,4 @@
-from character import Character
+from .character import Character
 from ..actions.attacks import attacks
 from ..actions.magic import spells
 
@@ -10,7 +10,8 @@ class Player(Character):
         self.mp = mp
         self.experience = experience
         self.level = level
-        self.attacks = [{"name": "Attack", "action": self.generic_attack}]
+        self.attacks = [{"name": "Attack", "action": self.generic_attack}, {
+            "name": "Items", "action": self.open_inventory_menu}]
         self.spells = []
 
     def gain_experience(self, amount: int):
@@ -78,3 +79,17 @@ class Player(Character):
             self.spells.append({"name": new_spell, "action": function_def})
         else:
             raise ValueError(f"Spell '{new_spell}' does not exist!")
+
+    def open_inventory_menu(self):
+        """View player inventory and executes the choice"""
+        while True:
+            for index, item in enumerate(self.inventory):
+                print(f"{index + 1}: {item}")
+
+            choice = input("Choose an item: ")
+
+            if choice in [str(i) for i in range(1, len(self.inventory) + 1)]:
+                self.use_item(self.inventory[int(choice) - 1])
+                break
+            else:
+                print("Invalid choice.")

@@ -1,4 +1,4 @@
-from gameelement import GameElement
+from .gameelement import GameElement
 from ..entities.player import Player
 from ..entities.monster import Monster
 
@@ -38,7 +38,7 @@ class Encounter(GameElement):
         """Handles the monsters' turn."""
         for monster in self.monsters:
             if monster.is_alive():
-                monster.pick_attack(monster, self.player)
+                monster.pick_attack(self.player)
 
     def is_encounter_resolved(self):
         """Check if the encounter is resolved (either player or all monsters are defeated)."""

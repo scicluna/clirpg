@@ -1,15 +1,11 @@
-from ...classes.locations.node import Node
-from ...classes.locations.encounter import Encounter
-from ...classes.locations.event import Event
-from ...classes.entities.player import Player
-from ...classes.entities.monster import Monster
 from ...classes.generators.node_creation import NodeBuilder
-from t1events import create_t1_events
+from ...classes.entities.player import Player
+from .t1events import create_t1_events
 
 
-def create_tier_1_nodes():
+def create_tier_1_nodes(player: Player):
     builder = NodeBuilder()
-    events = create_t1_events()
+    events = create_t1_events(player)
 
     # Create nodes for Tier 1
     node1 = builder.create_node(

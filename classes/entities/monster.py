@@ -1,7 +1,6 @@
-from character import Character
+from .character import Character
+from .player import Player
 import random
-
-from classes.entities.player import Player
 
 
 class Monster(Character):

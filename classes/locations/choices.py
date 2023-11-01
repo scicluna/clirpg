@@ -1,5 +1,5 @@
-from classes.entities.monster import Monster
-from classes.locations.encounter import Encounter
+from ..entities.monster import Monster
+from .encounter import Encounter
 from ..entities.player import Player
 
 
@@ -25,7 +25,7 @@ class EventOutcome:
     def apply(self, player: Player):
         """Apply the outcome to a player."""
         print(self.description)
-        player.health += self.health_change
+        player.hp += self.health_change
         player.gold += self.gold_change
         player.special_status = self.special_effect
         for item in self.items:
@@ -58,4 +58,3 @@ class Choices:
     def choose(self, choice: int, player: Player):
         """Apply the outcome of a choice."""
         self.choices[choice - 1].outcome.apply(player)
-        print(f"{self.choices[choice - 1].description}")
