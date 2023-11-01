@@ -1,9 +1,11 @@
 from character import Character
+from ..actions.attacks import attacks
+from ..actions.magic import spells
 
 
 class Player(Character):
-    def __init__(self, name: str, hp: int, attack: int, defense: int, mp: int, experience: int = 0, level: int = 1):
-        super().__init__(name, hp, attack, defense)
+    def __init__(self, name: str, hp: int, damage: int, defense: int, mp: int, experience: int = 0, level: int = 1):
+        super().__init__(name, hp, damage, defense)
         self.mp = mp
         self.experience = experience
         self.level = level
@@ -33,5 +35,21 @@ class Player(Character):
                 break
             else:
                 print("Invalid choice.")
+
+    def add_attack(self, new_attack: str):
+        """Adds an attack to player's attack menu"""
+        if new_attack in attacks:
+            function_def = attacks[new_attack]
+            self.attacks.append({"name": new_attack, "action": function_def})
+        else:
+            raise ValueError(
+                f"The attack '{new_attack}' does not exist in the attacks list!")
+
+    def add_magic(self, new_spell: str):
+        if new_spell in spells:
+            function_def = spells[new_spell]
+            self.spells.append({"name": new_spell, "action": function_def})
+        else:
+            raise ValueError(f"Spell '{new_spell}' does not exist!")
 
     # Any other player-specific methods can be added

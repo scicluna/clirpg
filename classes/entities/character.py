@@ -7,16 +7,16 @@ class Character:
         self.gold = gold
         self.inventory = inventory if inventory else []
 
-    def take_damage(self, damage: int):
-        """Reduces the character's hp by the given damage, after accounting for defense."""
+    def take_damage(self, damage: int) -> int:
+        """Reduces the character's hp by the given damage, after accounting for defense. Returns the net damage dealt."""
         net_damage = max(damage - self.defense, 0)
         self.hp -= net_damage
         print(f"{self.name} took {net_damage} damage!")
         return net_damage  # might be useful to know how much damage was actually dealt
 
-    def generic_attack(self, target: "Character"):
-        """Performs a generic attack on a target."""
-        return target.take_damage(self.damage)
+    def generic_attack(current_character: "Character", target: "Character") -> int:
+        """Performs a generic attack on a target. Returns the net damage dealt."""
+        return target.take_damage(current_character.damage)
 
     def is_alive(self) -> bool:
         """Checks if the character is still alive."""
