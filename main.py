@@ -19,7 +19,13 @@ def main():
         if isinstance(current_node.event_or_encounter, Town):
             result = current_node.event_or_encounter.display_locations()
             if result == "exit_town":
-                continue
+                # Present travel options and let the player choose
+                if current_node.connected_nodes:
+                    current_node = handle_player_choice(
+                        nodes, current_node, player)
+                else:
+                    print("There are no connected nodes from here. The journey ends.")
+                    break
 
         # Check if current node event is completed and trigger if not
         while not current_node.event_or_encounter.completed:

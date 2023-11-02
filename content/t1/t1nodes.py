@@ -9,11 +9,11 @@ def create_tier_1_nodes(player: Player):
 
     # Create nodes for Tier 1
     node1 = builder.create_node(
-        1, "Starting Village", events["starting_town"], "Your journey begins here.")
-    node2 = builder.create_node(
-        2, "Haunted Woods", events["forest_encounter"], "Eerie woods filled with ghostly apparitions.")
+        1, "The Town of Loreva", events["loreva_town"], "You begin your journey towards Victoria Summit.")
+    node3 = builder.create_node(
+        3, "King's Road", events["kings_road"], "You begin your journey towards Victoria Summit.")
 
     # Link nodes
-    builder.link_nodes(node1, node2, 1)
+    builder.link_nodes(node1, node3, 1)
 
     return builder.return_nodes()

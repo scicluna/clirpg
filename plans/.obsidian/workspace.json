@@ -93,7 +93,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. The Town of Loreva.md",
+                "file": "3. The King's Road.md",
                 "mode": "source",
                 "source": false
               }
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1. The Town of Loreva.md",
+                "file": "3. The King's Road.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1. The Town of Loreva.md",
+                "file": "3. The King's Road.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1. The Town of Loreva.md"
+                "file": "3. The King's Road.md"
               }
             }
           }
@@ -241,9 +241,9 @@
   },
   "active": "660d92bf22bc9c9e",
   "lastOpenFiles": [
-    "3. The King's Road.md",
-    "2. Wern's Woods.md",
     "1. The Town of Loreva.md",
+    "2. Wern's Woods.md",
+    "3. The King's Road.md",
     "5. Goblin's Lair.md",
     "9. The City of Terna.md",
     "4. Roes River Crossing.md",
