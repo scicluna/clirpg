@@ -66,6 +66,7 @@ class Encounter(GameElement):
             print("You are victorious!")
             for monster in self.monsters:
                 self.player.add_items(monster.drop_all_loot())
+                self.player.gold += monster.reward_gold()
                 self.player.gain_experience(monster.reward_exp())
         else:
             print("You have been defeated.")

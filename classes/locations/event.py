@@ -8,6 +8,7 @@ class Event(GameElement):
         self.description = description
         self.choices = choices
         self.player = player
+        self.completed = False
 
     def trigger(self):
         # Present the event to the player
@@ -16,19 +17,19 @@ class Event(GameElement):
         self.resolve_choice()
 
     def resolve_choice(self):
-        # Handle the outcome based on the player's choice
+        """Resolves the player's choice."""
         while True:
             choice = input("Which choice do you make?")
             try:
-                # Attempt to convert the choice to an integer
                 choice_num = int(choice)
 
-                # Check if the choice number is valid
                 if choice_num not in range(1, len(self.choices.choices) + 1):
                     print(
                         f"Invalid choice. Please choose between 1 and {len(self.choices.choices)}.")
                 else:
-                    self.choices.choose(choice_num, self.player)
+                    outcome = self.choices.choose(choice_num, self.player)
+                    if not outcome.incomplete:
+                        self.completed = True
                     break
 
             except ValueError:

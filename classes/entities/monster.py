@@ -4,8 +4,8 @@ import random
 
 
 class Monster(Character):
-    def __init__(self, name: str, hp: int, damage: int, defense: int, loot: list = None, exp: int = 0):
-        super().__init__(name, hp, damage, defense)
+    def __init__(self, name: str, hp: int, damage: int, defense: int, loot: list = None, exp: int = 0, gold: int = 0):
+        super().__init__(name, hp, damage, defense, gold)
         self.loot = loot if loot else []
         self.exp = exp
         self.attacks = [self.generic_attack]
@@ -13,6 +13,10 @@ class Monster(Character):
     def drop_all_loot(self):
         """Drops items upon defeat."""
         return self.loot
+
+    def reward_gold(self):
+        """Rewards gold upon defeat."""
+        return self.gold
 
     def reward_exp(self):
         """Rewards EXP upon defeat."""

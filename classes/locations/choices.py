@@ -12,7 +12,9 @@ class EventOutcome:
                  special_effect=None,
                  attacks: list[str] = None,
                  spells: list[str] = None,
-                 monsters: list[Monster] = None):
+                 monsters: list[Monster] = None,
+                 incomplete: bool = False,
+                 location_change: str = None):
         self.description = description
         self.health_change = health_change
         self.gold_change = gold_change
@@ -21,6 +23,8 @@ class EventOutcome:
         self.attacks = attacks if attacks is not None else []
         self.spells = spells if spells is not None else []
         self.monsters = monsters
+        self.incomplete = incomplete
+        self.location_change = location_change
 
     def apply(self, player: Player):
         """Apply the outcome to a player."""
@@ -38,6 +42,8 @@ class EventOutcome:
         if self.monsters:
             encounter = Encounter(self.monsters, player)
             encounter.trigger()
+
+        return self
 
 
 class Choice:
@@ -57,4 +63,5 @@ class Choices:
 
     def choose(self, choice: int, player: Player):
         """Apply the outcome of a choice."""
-        self.choices[choice - 1].outcome.apply(player)
+        outcome = choice = self.choices[choice - 1].outcome.apply(player)
+        return outcome

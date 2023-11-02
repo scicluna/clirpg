@@ -13,7 +13,15 @@ def main():
     # Main game loop.
     while player.is_alive():
         print(f"You are currently at {current_node.name}")
-        current_node.event_or_encounter.trigger()
+        if not current_node.event_or_encounter.completed:
+            outcome = current_node.event_or_encounter.trigger()
+
+            # Check if the outcome requires a location change
+            if outcome.location_change:
+                for node in nodes:
+                    if node.name == outcome.location_change or node.number == outcome.location_change:
+                        current_node = node
+                        break
 
         # Check if player is still alive after the encounter
         if not player.is_alive():
@@ -28,8 +36,7 @@ def main():
 
             # Get player's choice
             while True:
-                choice = input(
-                    f"Where to next?")
+                choice = input(f"Where to next?")
                 try:
                     choice_num = int(choice)
                     if 1 <= choice_num <= len(current_node.connected_nodes):
