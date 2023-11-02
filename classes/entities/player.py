@@ -13,6 +13,7 @@ class Player(Character):
         self.attacks = [{"name": "Attack", "action": self.generic_attack}, {
             "name": "Items", "action": self.open_inventory_menu}]
         self.spells = []
+        self.total_days_passed = 0
 
     def gain_experience(self, amount: int):
         """Increases player's experience. Also handles leveling up."""
