@@ -1,5 +1,8 @@
+from ..actions.item import Item
+
+
 class Character:
-    def __init__(self, name: str, hp: int, damage: int, defense: int, gold: int = 0, inventory: list = None):
+    def __init__(self, name: str, hp: int, damage: int, defense: int, gold: int = 0, inventory: list[Item] = None):
         self.name = name
         self.hp = hp
         self.damage = damage

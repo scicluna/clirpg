@@ -1,6 +1,7 @@
 from .character import Character
 from ..actions.attacks import attacks
 from ..actions.magic import spells
+from ..actions.item import Item
 
 
 class Player(Character):
@@ -14,6 +15,8 @@ class Player(Character):
             "name": "Items", "action": self.open_inventory_menu}]
         self.spells = []
         self.total_days_passed = 0
+        self.equipped_weapon = None
+        self.equipped_armor = None
 
     def gain_experience(self, amount: int):
         """Increases player's experience. Also handles leveling up."""
@@ -83,14 +86,54 @@ class Player(Character):
 
     def open_inventory_menu(self):
         """View player inventory and executes the choice"""
+
+        # Filter out items with 0 quantity
+        valid_items = [item for item in self.inventory if item.quantity > 0]
+
         while True:
-            for index, item in enumerate(self.inventory):
+            for index, item in enumerate(valid_items):
                 print(f"{index + 1}: {item}")
 
             choice = input("Choose an item: ")
 
-            if choice in [str(i) for i in range(1, len(self.inventory) + 1)]:
-                self.use_item(self.inventory[int(choice) - 1])
+            if choice in [str(i) for i in range(1, len(valid_items) + 1)]:
+                self.use_item(valid_items[int(choice) - 1])
                 break
             else:
                 print("Invalid choice.")
+
+    def equip_weapon(self, weapon: Item):
+        """Equips weapon and updates damage stat"""
+        # Unequip the current weapon if there's one
+        if self.equipped_weapon:
+            self.unequip_weapon()
+
+        # Increase player's damage by the weapon's damage
+        self.damage += weapon.dmg
+        self.equipped_weapon = weapon
+        print(f"Equipped {weapon.name}!")
+
+    def unequip_weapon(self):
+        """Unequip weapon and deducts damage stat"""
+        # Decrease player's damage by the weapon's damage
+        self.damage -= self.equipped_weapon.dmg
+        print(f"Unequipped {self.equipped_weapon.name}!")
+        self.equipped_weapon = None
+
+    def equip_armor(self, armor: Item):
+        """Equip armor and update defense stat"""
+        # Unequip the current armor if there's one
+        if self.equipped_armor:
+            self.unequip_armor()
+
+        # Increase player's defense by the armor's defense
+        self.defense += armor.defense
+        self.equipped_armor = armor
+        print(f"Equipped {armor.name}!")
+
+    def unequip_armor(self):
+        """"Unequips armor and deducts defense stat"""
+        # Decrease player's defense by the armor's defense
+        self.defense -= self.equipped_armor.defense
+        print(f"Unequipped {self.equipped_armor.name}!")
+        self.equipped_armor = None
