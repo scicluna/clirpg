@@ -3,18 +3,18 @@ import re
 from ..classes.actions.item import Item, ItemType
 
 def parse_item_file(file_path):
+    item_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').title()
+
     with open(file_path, 'r') as file:
         content = file.read()
 
     # Regular expressions to match different parts of the template
-    name_regex = re.compile(r'^# (.+)$', re.MULTILINE)
     description_regex = re.compile(r'## Description:\n(.+)', re.MULTILINE)
     type_regex = re.compile(r'## Type:\n(.+)', re.MULTILINE)
     stats_regex = re.compile(r'## Stats:\n((?:\(.*\)\n?)*)', re.MULTILINE)
     special_regex = re.compile(r'## Special:\n(.*)', re.MULTILINE)
 
     # Find matches
-    name_match = name_regex.search(content)
     description_match = description_regex.search(content)
     type_match = type_regex.search(content)
     stats_match = stats_regex.search(content)
@@ -30,7 +30,7 @@ def parse_item_file(file_path):
 
     # Creating the item object
     item = Item(
-        name=name_match.group(1).strip() if name_match else 'Unknown',
+        name= item_name,
         description=description_match.group(1).strip() if description_match else 'No description',
         quantity=1,  # Default quantity to 1, adjust as needed
         item_type=ItemType[type_match.group(1).strip().upper()] if type_match else ItemType.SPECIAL,

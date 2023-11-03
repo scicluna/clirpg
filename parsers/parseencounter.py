@@ -20,22 +20,21 @@ def parse_monster_list(monster_section, monster_dict):
     return monsters
 
 def parse_encounter_file(file_path, monster_dict, player):
+    # Use the filename (without the extension) as the encounter name
+    encounter_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').title()
+
     with open(file_path, 'r') as file:
         content = file.read()
 
     # Split the content by sections
     sections = content.split('##')
-    name_section = sections[0].strip()
     monster_section = sections[1].strip() if len(sections) > 1 else ""
-
-    # Parse name
-    name = name_section.split('\n')[0].replace('#', '').strip()
 
     # Parse monster list
     monsters = parse_monster_list(monster_section, monster_dict)
 
-    # Create the Encounter object
-    encounter = Encounter(name=name, monsters=monsters, player=player)
+    # Create the Encounter object with the name from the filename
+    encounter = Encounter(name=encounter_name, monsters=monsters, player=player)
     return encounter
 
 # Usage:

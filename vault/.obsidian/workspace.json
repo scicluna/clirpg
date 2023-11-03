@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/nodes/1. Home.md",
+                "file": "t1/nodes/1. The Wandering Hills.md",
                 "mode": "source",
                 "source": false
               }
@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Node_Template.md",
+                "file": "templates/Node_Template (number. name).md",
                 "mode": "source",
                 "source": false
               }
@@ -45,7 +45,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Event_Template.md",
+                "file": "templates/Event_Template (eventname).md",
                 "mode": "source",
                 "source": false
               }
@@ -57,7 +57,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Item_Template.md",
+                "file": "templates/Item_Template (itemname).md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Monster_Template.md",
+                "file": "templates/Monster_Template (monstername).md",
                 "mode": "source",
                 "source": false
               }
@@ -81,7 +81,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Node_Template.md",
+                "file": "templates/Node_Template (number. name).md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Encounter_Template.md",
+                "file": "templates/Encounter_Template (encounter name).md",
                 "mode": "source",
                 "source": false
               }
@@ -105,7 +105,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Encounter_Template.md",
+                "file": "templates/Encounter_Template (encounter name).md",
                 "mode": "source",
                 "source": false
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Event_Template.md",
+                "file": "templates/Event_Template (eventname).md",
                 "mode": "source",
                 "source": false
               }
@@ -129,7 +129,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Town_Template.md",
+                "file": "templates/Encounter_Template (encounter name).md",
                 "mode": "source",
                 "source": false
               }
@@ -202,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/Town_Template.md",
+                "file": "templates/Encounter_Template (encounter name).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +219,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "templates/Town_Template.md",
+                "file": "templates/Encounter_Template (encounter name).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -242,7 +242,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "templates/Town_Template.md"
+                "file": "templates/Encounter_Template (encounter name).md"
               }
             }
           }
@@ -265,13 +265,14 @@
   },
   "active": "b8de6126bf695143",
   "lastOpenFiles": [
-    "templates/Node_Template.md",
-    "templates/Monster_Template.md",
-    "templates/Item_Template.md",
-    "templates/Event_Template.md",
-    "templates/Encounter_Template.md",
-    "templates/Town_Template.md",
-    "t1/nodes/1. Home.md",
+    "templates/Event_Template (eventname).md",
+    "templates/Encounter_Template (encounter name).md",
+    "templates/Item_Template (itemname).md",
+    "templates/Monster_Template (monstername).md",
+    "templates/Town_Template (townname).md",
+    "templates/Node_Template (number. name).md",
+    "t1/nodes/1. The Wandering Hills.md",
+    "Untitled.md",
     "templates",
     "t1/towns",
     "t1/encounter",

@@ -49,20 +49,22 @@ def parse_choice(choice_text, item_dict, monster_dict):
     return Choice(description, outcome)
 
 def parse_event_file(file_path, player, item_dict, monster_dict):
+    # Use the filename (without the extension) as the event name
+    event_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').title()
+
     with open(file_path, 'r') as file:
         content = file.read()
 
     # Split the content by sections
     sections = content.split('##')
-    name = sections[0].strip().replace('#', '').strip()
     description = sections[1].strip()
     choices_text = sections[2].strip().split('\n\n')  # Assuming double newlines separate choices
 
     choices = [parse_choice(choice_text, item_dict, monster_dict) for choice_text in choices_text if choice_text.strip() != '']
     choices_object = Choices(choices)
 
-    # Create the Event object
-    event = Event(name=name, description=description, choices=choices_object, player=player)
+    # Create the Event object with the name from the filename
+    event = Event(name=event_name, description=description, choices=choices_object, player=player)
     return event
 
 # Usage

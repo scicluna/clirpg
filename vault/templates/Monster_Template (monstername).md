@@ -1,5 +1,3 @@
-# (Monster Name)
-
 ## HP:
 (hp)
 

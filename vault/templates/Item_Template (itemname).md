@@ -1,5 +1,3 @@
-# (Item Name)
-
 ## Description:
 (Item Description)
 

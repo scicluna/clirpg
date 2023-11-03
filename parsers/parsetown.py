@@ -17,13 +17,17 @@ def parse_location(location_text, event_dict):
         raise ValueError(f"Event '{event_name}' is not defined.")
     return Location(name, event)
 
-def parse_town(town_text, event_dict):
-    lines = town_text.strip().split('\n')
-    town_name = lines[0].replace('#', '').strip()
+def parse_town(file_path, event_dict):
+    # Extract the town name from the file name, assuming it's the name before '.md'
+    town_name = os.path.basename(file_path).replace('.md', '')
     
-    # Skip the '## Locations' line and the '(Exit)' line if present
-    location_texts = [line for line in lines[2:] if line.strip() and '##' not in line and 'Exit' not in line]
-    
+    with open(file_path, 'r') as file:
+        # Skip the first line if it's the town name with '#'
+        locations_text = file.readlines()[1:]  # This assumes the first line is not needed
+        
+    # Filter lines that are not locations (ignoring '## Locations' and empty lines)
+    location_texts = [line.strip() for line in locations_text if line.strip() and not line.startswith('##')]
+
     visit_locations = [parse_location(location_text, event_dict) for location_text in location_texts if location_text.strip()]
     return Town(town_name, visit_locations)
 
@@ -35,8 +39,7 @@ def generate_town_dict(tier: int, event_dict):
     for filename in os.listdir(town_directory):
         if filename.endswith('.md'):
             file_path = os.path.join(town_directory, filename)
-            with open(file_path, 'r') as file:
-                town_text = file.read()
-                town = parse_town(town_text, event_dict)
-                town_dict[town.name] = town
+            town = parse_town(file_path, event_dict)
+            town_dict[town.name] = town
+    
     return town_dict

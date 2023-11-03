@@ -2,9 +2,9 @@ import os
 from ..classes.locations.node import Node
 import re
 
-def parse_node(node_text, event_dict, encounter_dict, town_dict):
+def parse_node(file_path, node_text, event_dict, encounter_dict, town_dict):
     lines = node_text.strip().split('\n')
-    header = lines[0].strip()
+    header = os.path.basename(file_path).replace('.md', '')
     node_number, node_name = header.split('. ', 1)
     node_number = int(node_number.replace('#', '').strip())  # Strip out the '#' and any padding spaces
 
@@ -52,13 +52,13 @@ def connect_nodes(nodes_dict, connections_data):
             else:
                 raise ValueError(f"Node '{connected_node_number}. {connected_node_name}' is not defined.")
 
-def parse_all_nodes(nodes_texts, event_dict, encounter_dict, town_dict):
+def parse_all_nodes(file_path, nodes_texts, event_dict, encounter_dict, town_dict):
     nodes_dict = {}
     connections_data = {}
 
     # First pass: create nodes
     for node_text in nodes_texts:
-        node, connection_data = parse_node(node_text, event_dict, encounter_dict, town_dict)
+        node, connection_data = parse_node(file_path, node_text, event_dict, encounter_dict, town_dict)
         nodes_dict[node.name] = node
         connections_data[node.name] = connection_data
 
@@ -78,7 +78,7 @@ def parse_directory_nodes(directory_path, event_dict, encounter_dict, town_dict)
             file_path = os.path.join(directory_path, filename)
             node_text = read_node_file(file_path)
             nodes_texts.append(node_text)
-    return parse_all_nodes(nodes_texts, event_dict, encounter_dict, town_dict)
+    return parse_all_nodes(file_path, nodes_texts, event_dict, encounter_dict, town_dict)
 
 def generate_nodes_dict(tier: int, event_dict, encounter_dict, town_dict):
     """Generate nodes dictionary for the given tier"""
