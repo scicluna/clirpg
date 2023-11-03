@@ -5,13 +5,18 @@ from ..classes.locations.encounter import Encounter
 def parse_monster_list(monster_section, monster_dict):
     """Helper function to parse the monster list and retrieve monster objects from a dictionary."""
     monsters = []
-    monster_names = monster_section.strip().split('\n')
-    for monster_name in monster_names:
-        # Get the monster object from the dictionary, if it exists
-        monster = monster_dict.get(monster_name.strip())
-        if monster:
-            # Deepcopy to prevent shared state if multiple encounters have the same monster type
-            monsters.append(deepcopy(monster))
+    monster_lines = monster_section.strip().split('\n')
+    for line in monster_lines:
+        if line.startswith('[[') and line.endswith(']]'):
+            # Get the monster name from the Obsidian markdown link
+            monster_name = line.strip('[]')
+            # Get the monster object from the dictionary, if it exists
+            monster = monster_dict.get(monster_name.strip())
+            if monster:
+                # Deepcopy to prevent shared state if multiple encounters have the same monster type
+                monsters.append(deepcopy(monster))
+            else:
+                print(f"Monster '{monster_name}' not found in monster dictionary, skipping...")
     return monsters
 
 def parse_encounter_file(file_path, monster_dict, player):

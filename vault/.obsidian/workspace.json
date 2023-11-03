@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/nodes/Node_Template.md",
+                "file": "templates/Node_Template.md",
                 "mode": "source",
                 "source": false
               }
@@ -45,7 +45,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/events/Event_Template.md",
+                "file": "templates/Event_Template.md",
                 "mode": "source",
                 "source": false
               }
@@ -57,7 +57,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/items/Item_Template.md",
+                "file": "templates/Item_Template.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/monsters/Monster_Template.md",
+                "file": "templates/Monster_Template.md",
                 "mode": "source",
                 "source": false
               }
@@ -81,7 +81,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/nodes/Node_Template.md",
+                "file": "templates/Node_Template.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,14 +93,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t1/nodes/Node_Template.md",
+                "file": "templates/Encounter_Template.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "67e51de996468b1f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "templates/Encounter_Template.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5bd706d3b22248c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "templates/Event_Template.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b8de6126bf695143",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "templates/Town_Template.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -166,7 +202,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "t1/nodes/Node_Template.md",
+                "file": "templates/Town_Template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -183,7 +219,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "t1/nodes/Node_Template.md",
+                "file": "templates/Town_Template.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -206,7 +242,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "t1/nodes/Node_Template.md"
+                "file": "templates/Town_Template.md"
               }
             }
           }
@@ -227,19 +263,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b9a803b021c0d32a",
+  "active": "b8de6126bf695143",
   "lastOpenFiles": [
-    "t1/towns/Town_Template.md",
-    "t1/events/Event_Template.md",
-    "t1/encounter/Encounter_Template.md",
-    "t1/items/Item_Template.md",
-    "t1/monsters/Monster_Template.md",
-    "t1/nodes/Node_Template.md",
+    "templates/Node_Template.md",
+    "templates/Monster_Template.md",
+    "templates/Item_Template.md",
+    "templates/Event_Template.md",
+    "templates/Encounter_Template.md",
+    "templates/Town_Template.md",
+    "t1/nodes/1. Home.md",
+    "templates",
     "t1/towns",
     "t1/encounter",
     "t1/monsters",
     "t1/items",
-    "t1/nodes/1. Home.md",
     "t1/events",
     "t1/nodes",
     "t1",

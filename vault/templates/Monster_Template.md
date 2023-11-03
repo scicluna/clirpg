@@ -10,9 +10,9 @@
 (defense)
 
 ## Loot:
-(item)
-(item)
-(item)
+[[(item)]]
+[[(item)]]
+[[(item)]]
 
 ## Gold:
 (gold amount)
