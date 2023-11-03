@@ -16,3 +16,6 @@
 
 ## Gold:
 (gold amount)
+
+## Exp:
+(exp amount)

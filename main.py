@@ -1,5 +1,5 @@
 from .classes.entities.player import Player
-from .content.t1.t1nodes import create_tier_1_nodes
+from .parsers.allparse import allparse
 from .utils.playerchoice import handle_player_choice
 from .classes.town.town import Town
 
@@ -9,7 +9,7 @@ def main():
     player = Player(name='HERO', hp=40, mp=5, damage=2, defense=0)
 
     # Set up the game world.
-    nodes = create_tier_1_nodes(player)
+    nodes = allparse(1, player)
     current_node = nodes[0]
 
     # Main game loop.
