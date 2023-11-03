@@ -2,6 +2,7 @@ from .classes.entities.player import Player
 from .parsers.allparse import allparse
 from .utils.playerchoice import handle_player_choice
 from .classes.town.town import Town
+from .classes.locations.event import Event
 
 
 def main():
@@ -31,15 +32,16 @@ def main():
             outcome = current_node.event_or_encounter.trigger()
 
             # Handle chained events
-            while outcome.new_event:
-                outcome = outcome.new_event.trigger()
+            if isinstance(current_node.event_or_encounter, Event) and outcome.new_event:
+                while outcome.new_event:
+                    outcome = outcome.new_event.trigger()
 
-            # Handle location changes
-            if outcome.location_change:
-                for node in nodes:
-                    if node.name == outcome.location_change or node.number == outcome.location_change:
-                        current_node = node
-                        break
+                # Handle location changes
+                if outcome.location_change:
+                    for node in nodes:
+                        if node.name == outcome.location_change or node.number == outcome.location_change:
+                            current_node = node
+                            break
 
         # Check if player is still alive after the encounter
         if not player.is_alive():

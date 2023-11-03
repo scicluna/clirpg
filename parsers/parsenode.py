@@ -42,26 +42,36 @@ def parse_node(file_path, node_text, event_dict, encounter_dict, town_dict):
     # Parse the connection data, only if connections_start_index is set
     connection_data = []
     if connections_start_index is not None:
-        connection_pattern = r'\-\s*\[\[\((\d+)\)\s*\.\s*([^]]+)\]\]\s*:\s*(\d+)'
+        connection_pattern = r'\-\s*\[\[(\d+)\.\s*([^]]+)\]\]\s*:\s*(\d+)'
         for line in lines[connections_start_index + 1:]:
             match = re.match(connection_pattern, line)
             if match:
                 connected_node_number, connected_node_name, distance = match.groups()
-                connection_data.append((int(connected_node_number), connected_node_name, int(distance)))
+                connection_data.append((int(connected_node_number), connected_node_name.strip(), int(distance)))
 
     return node, connection_data
 
 def connect_nodes(nodes_dict, connections_data):
-    for node, connection_lines in connections_data.items():
-        for connected_node_number, connected_node_name, distance in connection_lines:
-            # Here we use the node number and name to find the correct node
-            # Assuming that the node name is unique enough or you could enhance this to make sure it matches the number as well
-            connected_node = next((n for n in nodes_dict.values() if n.number == connected_node_number and n.name == connected_node_name), None)
+    for node_name, connection_lines in connections_data.items():
+        node = nodes_dict.get(node_name)
+        if not node:
+            raise ValueError(f"Node named '{node_name}' is not defined.")
+        
+        print(connection_lines)
             
-            if connected_node:
-                node.connect_nodes(connected_node, distance)
-            else:
+        for connected_node_number, connected_node_name, distance in connection_lines:
+            connected_node = next(
+                (n for n in nodes_dict.values() if n.number == connected_node_number and n.name == connected_node_name),
+                None
+            )
+            
+            if not connected_node:
                 raise ValueError(f"Node '{connected_node_number}. {connected_node_name}' is not defined.")
+                
+            print(f"Connecting {node.name} to {connected_node.name} with distance {distance}")
+            node.connect_nodes(connected_node, distance)
+
+    print("All nodes connected successfully.")
 
 
 def parse_all_nodes(nodes_texts, event_dict, encounter_dict, town_dict):
@@ -74,7 +84,7 @@ def parse_all_nodes(nodes_texts, event_dict, encounter_dict, town_dict):
         node, connection_data = parse_node(file_path, content, event_dict, encounter_dict, town_dict)
         nodes_dict[node.name] = node
         connections_data[node.name] = connection_data
-
+    
     # Second pass: connect nodes
     connect_nodes(nodes_dict, connections_data)
 

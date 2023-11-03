@@ -11,7 +11,7 @@ class Town:
         """Display all locations and handle user choice"""
         while True:
             for index, location in enumerate(self.visit_locations):
-                print(f"{index+1}: {location['name']}")
+                print(f"{index+1}: {location.name}")
             print(f"{len(self.visit_locations) + 1}: Exit Town")
 
             choice = input("Which location would you like to visit? ")
@@ -27,7 +27,7 @@ class Town:
                     print(
                         f"Invalid choice. Please choose between 1 and {len(self.visit_locations)}.")
                 else:
-                    self.visit_locations[choice_num - 1]["event"].trigger()
+                    self.visit_locations[choice_num - 1].event.trigger()
 
             except ValueError:
                 # This block will execute if the conversion to int fails

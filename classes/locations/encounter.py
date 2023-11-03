@@ -4,10 +4,11 @@ from ..entities.monster import Monster
 
 
 class Encounter(GameElement):
-    def __init__(self, name: str, monsters: list[Monster], player: Player):
+    def __init__(self, name: str, monsters: list[Monster], player: Player, completed=False):
         self.name = name
         self.monsters = monsters
         self.player = player
+        self.completed = completed
 
     def display_status(self):
         """Display status of player and monsters"""
@@ -65,6 +66,7 @@ class Encounter(GameElement):
         # Determine the outcome of the encounter
         if self.player.is_alive():
             print("You are victorious!")
+            self.completed = True
             for monster in self.monsters:
                 self.player.add_items(monster.drop_all_loot())
                 self.player.gold += monster.reward_gold()
