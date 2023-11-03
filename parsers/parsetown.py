@@ -33,7 +33,8 @@ def parse_town(file_path, event_dict):
 
 def generate_town_dict(tier: int, event_dict):
     """Generate town dictionary for the given tier"""
-    town_directory = f'vault/t{tier}/towns'
+    town_directory = os.path.join(os.path.dirname(__file__),'..', f'vault/t{tier}/towns')
+    town_directory = os.path.normpath(town_directory)  # Normalize the path
     town_dict = {}
 
     for filename in os.listdir(town_directory):

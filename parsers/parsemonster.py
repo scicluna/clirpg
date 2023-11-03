@@ -43,7 +43,8 @@ def parse_monster_file(file_path, item_dict):
 # Usage:
 def generate_monster_dict(tier: int, item_dict):
     """Generate monster dictionary for the given tier using items from item_dict."""
-    monster_directory = f'vault/t{tier}/monsters'
+    monster_directory = os.path.join(os.path.dirname(__file__),'..', f'vault/t{tier}/monsters')
+    monster_directory = os.path.normpath(monster_directory)  # Normalize the path
     monster_dict = {}
 
     for filename in os.listdir(monster_directory):

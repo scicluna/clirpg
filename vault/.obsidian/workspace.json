@@ -129,14 +129,86 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Encounter_Template (encounter name).md",
+                "file": "t1/nodes/1. The Wandering Hills.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "72b11bdde0a82008",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t1/nodes/1. The Wandering Hills.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "21c41f7810fbde33",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t1/nodes/2. Glimmering River.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a3c6e93f95ed0ff7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t1/nodes/4. Sunlit Clearing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c22f9859901dd3c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t1/nodes/5. Shadowed Path.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c6f0dd885814d470",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t1/towns/Elven Outpost.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "521f2370dfd57b42",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t1/events/The Mysterious Fog.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 10
+        "currentTab": 16
       }
     ],
     "direction": "vertical"
@@ -202,7 +274,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/Encounter_Template (encounter name).md",
+                "file": "t1/events/The Mysterious Fog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +291,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "templates/Encounter_Template (encounter name).md",
+                "file": "t1/events/The Mysterious Fog.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -242,7 +314,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "templates/Encounter_Template (encounter name).md"
+                "file": "t1/events/The Mysterious Fog.md"
               }
             }
           }
@@ -263,16 +335,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b8de6126bf695143",
+  "active": "521f2370dfd57b42",
   "lastOpenFiles": [
+    "t1/events/Ancient Altar Ritual.md",
+    "t1/nodes/5. Shadowed Path.md",
+    "t1/nodes/4. Sunlit Clearing.md",
+    "t1/nodes/3. Whispering Grove.md",
+    "t1/nodes/2. Glimmering River.md",
+    "t1/nodes/1. The Wandering Hills.md",
+    "t1/events/The Mysterious Fog.md",
     "templates/Event_Template (eventname).md",
-    "templates/Encounter_Template (encounter name).md",
-    "templates/Item_Template (itemname).md",
-    "templates/Monster_Template (monstername).md",
     "templates/Town_Template (townname).md",
     "templates/Node_Template (number. name).md",
-    "t1/nodes/1. The Wandering Hills.md",
-    "Untitled.md",
+    "t1/towns/Elven Outpost.md",
+    "t1/events/Night of Tales.md",
+    "t1/encounters/Thieves' Ambush.md",
+    "t1/encounters/River Serpents Ambush.md",
+    "t1/encounters",
+    "t1/encounter/Thieves' Ambush.md",
+    "t1/encounter/River Serpents Ambush.md",
+    "templates/Monster_Template (monstername).md",
+    "templates/Encounter_Template (encounter name).md",
+    "templates/Item_Template (itemname).md",
     "templates",
     "t1/towns",
     "t1/encounter",
@@ -287,8 +371,6 @@
     "3. The King's Road.md",
     "1. The Town of Loreva.md",
     "5. Goblin's Lair.md",
-    "4. Roes River Crossing.md",
-    "8. River's Elbow.md",
-    "7. Abandoned Farmstead.md"
+    "4. Roes River Crossing.md"
   ]
 }

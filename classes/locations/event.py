@@ -16,7 +16,7 @@ class Event(GameElement):
     def trigger(self):
         # Present the event to the player
         print(self.description)
-        self.resolve_choice()
+        return self.resolve_choice()
 
     def resolve_choice(self):
         """Resolves the player's choice."""
@@ -34,7 +34,7 @@ class Event(GameElement):
                     if not outcome.stay_in_event:
                         if not outcome.incomplete:
                             self.completed = True
-                        break
+                        return outcome
 
             except ValueError:
                 # This block will execute if the conversion to int fails

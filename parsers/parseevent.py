@@ -31,7 +31,6 @@ def parse_event_outcome(outcome_description, arguments, item_dict, monster_dict)
             monster_names = value.split(',')
             monsters = [monster_dict[monster_name.strip()] for monster_name in monster_names if monster_name.strip() in monster_dict]
 
-
     # Create the EventOutcome object with all the gathered information
     return EventOutcome(outcome_description, items=items, special_effect=special_effect,
                         attacks=attacks, spells=spells, monsters=monsters,
@@ -49,28 +48,46 @@ def parse_choice(choice_text, item_dict, monster_dict):
     return Choice(description, outcome)
 
 def parse_event_file(file_path, player, item_dict, monster_dict):
-    # Use the filename (without the extension) as the event name
     event_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').title()
-
+    
     with open(file_path, 'r') as file:
         content = file.read()
 
-    # Split the content by sections
+    # Split the content by sections and remove any empty lines or irrelevant headers
     sections = content.split('##')
     description = sections[1].strip()
-    choices_text = sections[2].strip().split('\n\n')  # Assuming double newlines separate choices
-
-    choices = [parse_choice(choice_text, item_dict, monster_dict) for choice_text in choices_text if choice_text.strip() != '']
+   # First, split the entire choices section into lines
+    choices_lines = sections[2].strip().split('\n')
+    
+    # Then, group lines into choices
+    choices_text = []
+    current_choice = []
+    for line in choices_lines:
+        if line.startswith('Description:') and current_choice:
+            # When we hit a new 'Description:', we join the current choice's lines and reset for the next one
+            choices_text.append('\n'.join(current_choice).strip())
+            current_choice = [line]  # Start new choice with current line
+        elif line.strip() and not line.startswith('Choices:'):
+            # Otherwise, add line to current choice
+            current_choice.append(line)
+    
+    # Don't forget to 
+    # add the last choice if it exists
+    if current_choice:
+        choices_text.append('\n'.join(current_choice).strip())
+    
+    # Assuming that parse_choice function correctly processes each individual choice text
+    choices = [parse_choice(choice, item_dict, monster_dict) for choice in choices_text]
     choices_object = Choices(choices)
 
-    # Create the Event object with the name from the filename
     event = Event(name=event_name, description=description, choices=choices_object, player=player)
     return event
 
 # Usage
 def generate_event_dict(tier, player, item_dict, monster_dict):
     """Generate a dictionary of events for a given tier."""
-    event_directory = f'vault/t{tier}/events'  # Construct the path with tier
+    event_directory = os.path.join(os.path.dirname(__file__),'..', f'vault/t{tier}/events')
+    event_directory = os.path.normpath(event_directory)
     event_dict = {}
 
     for filename in os.listdir(event_directory):

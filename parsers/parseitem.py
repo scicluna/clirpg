@@ -46,7 +46,8 @@ def parse_item_file(file_path):
 # Assuming the directory structure is 'vault/t1/items'
 def generate_item_dict(tier: int):
     """Generate item dictionary for the given tier"""
-    item_directory = f'vault/t{tier}/items'
+    item_directory = os.path.join(os.path.dirname(__file__), '..', f'vault/t{tier}/items')
+    item_directory = os.path.normpath(item_directory)  # Normalize the path
     item_dict = {}
 
     for filename in os.listdir(item_directory):

@@ -41,7 +41,8 @@ def parse_encounter_file(file_path, monster_dict, player):
 # Assuming the directory structure is 'vault/t1/encounters'
 def generate_encounter_dict(tier: int, monster_dict, player):
     """Generate a dictionary of encounters for the given tier"""
-    encounter_directory = f'vault/t{tier}/encounters'
+    encounter_directory = os.path.join(os.path.dirname(__file__),'..', f'vault/t{tier}/encounters')
+    encounter_directory = os.path.normpath(encounter_directory)
     encounter_dict = {}
 
     for filename in os.listdir(encounter_directory):

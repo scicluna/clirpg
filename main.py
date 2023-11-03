@@ -11,7 +11,7 @@ def main():
     # Set up the game world.
     nodes = allparse(1, player)
     current_node = nodes[0]
-
+    
     # Main game loop.
     while player.is_alive():
         print(f"You are currently at {current_node.name}")
@@ -21,8 +21,7 @@ def main():
             if result == "exit_town":
                 # Present travel options and let the player choose
                 if current_node.connected_nodes:
-                    current_node = handle_player_choice(
-                        nodes, current_node, player)
+                    current_node = handle_player_choice(nodes, current_node, player)
                 else:
                     print("There are no connected nodes from here. The journey ends.")
                     break
