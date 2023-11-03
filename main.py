@@ -45,7 +45,7 @@ def main():
         # Check if player is still alive after the encounter
         if not player.is_alive():
             print("You have died!")
-            break
+            exit()
 
         # Present travel options and let the player choose
         if current_node.connected_nodes:

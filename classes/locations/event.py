@@ -6,7 +6,8 @@ from ..locations.encounter import Encounter
 
 
 class Event(GameElement):
-    def __init__(self, description: str, choices: "Choices", player: Player):
+    def __init__(self, name: str, description: str, choices: "Choices", player: Player):
+        self.name = name
         self.description = description
         self.choices = choices
         self.player = player

@@ -2,7 +2,8 @@ from ..locations.event import Event
 
 
 class Town:
-    def __init__(self, visit_locations: list["Location"]) -> None:
+    def __init__(self,name:str, visit_locations: list["Location"]) -> None:
+        self.name = name
         self.visit_locations = visit_locations
         pass
 

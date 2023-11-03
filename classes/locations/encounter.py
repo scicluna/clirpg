@@ -4,7 +4,8 @@ from ..entities.monster import Monster
 
 
 class Encounter(GameElement):
-    def __init__(self, monsters: list[Monster], player: Player):
+    def __init__(self, name: str, monsters: list[Monster], player: Player):
+        self.name = name
         self.monsters = monsters
         self.player = player
 
