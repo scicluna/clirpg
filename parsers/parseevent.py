@@ -5,38 +5,47 @@ from ..classes.locations.event import Event, Choice, Choices, EventOutcome
 def parse_event_outcome(outcome_description, arguments, item_dict, monster_dict):
     """Create an EventOutcome object from the outcome description and arguments."""
     # Parse and create Items, Special Effects, Attacks, Spells, Monsters, etc. from arguments
-    items = []
-    special_effect = None
-    attacks = []
-    spells = []
-    monsters = []
-    incomplete = False
-    location_change = None
-    new_event = None
-    stay_in_event = False
-    lose_item = None
+    effects = {
+        "items" : [],
+        "special_effect" : None,
+        "attacks" : [],
+        "spells" : [],
+        "monsters" : [],
+        "incomplete" : False,
+        "location_change" : None,
+        "new_event" : None,
+        "stay_in_event" : False,
+        "lose_item" : None,
+        "gold_change" : 0,
+        "hp" : 0
+    }
 
     for arg in arguments:
         key, value = arg.split('=')
-        key = key.strip()
-        value = value.strip()
-        
+        key = key.replace('-', '').lower().strip()
+        value = value.replace('-', '').lower().strip()
+
         if key == 'items':
             # Assuming value is a comma-separated list of item names
             item_names = value.split(',')
             items = [item_dict[item_name.strip()] for item_name in item_names if item_name.strip() in item_dict]
+            effects["items"] = items
 
         elif key == 'monsters':
             # Assuming value is a comma-separated list of monster names
             monster_names = value.split(',')
             monsters = [monster_dict[monster_name.strip()] for monster_name in monster_names if monster_name.strip() in monster_dict]
+            effects["monsters"] = monsters
 
+        else:
+            effects[key] = value
+        
     # Create the EventOutcome object with all the gathered information
-    return EventOutcome(outcome_description, items=items, special_effect=special_effect,
-                        attacks=attacks, spells=spells, monsters=monsters,
-                        incomplete=incomplete, location_change=location_change,
-                        new_event=new_event, stay_in_event=stay_in_event,
-                        lose_item=lose_item)
+    return EventOutcome(outcome_description, items=effects["items"], special_effect=effects["special_effect"],
+                        attacks=effects["attacks"], spells=effects["spells"], monsters=effects["monsters"],
+                        incomplete=effects["incomplete"], location_change=effects["location_change"],
+                        new_event=effects["new_event"], stay_in_event=effects["stay_in_event"],
+                        lose_item=effects["lose_item"], gold_change=effects["gold_change"], health_change=effects["hp"])
 
 def parse_choice(choice_text, item_dict, monster_dict):
     lines = choice_text.strip().split('\n')

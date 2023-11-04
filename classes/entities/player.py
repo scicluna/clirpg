@@ -18,6 +18,18 @@ class Player(Character):
         self.equipped_weapon = None
         self.equipped_armor = None
 
+    def display_status(self):
+        """Displays player's status"""
+        print(f"{self.name}\nHP: {self.hp}/{self.maxhp}\nMP: {self.mp}\nDamage: {self.damage}\nDefense: {self.defense}\nLevel: {self.level}\nExperience: {self.experience}/{10 + self.level*5}\nGold:{self.gold}\nDays passed: {self.total_days_passed}")
+
+    def display_inventory(self):
+        """Displays player's inventory"""
+        print("Inventory:")
+        for item in self.inventory:
+            print(f"{item.quantity}x {item}")
+        if len(self.inventory) == 0:
+            print("Empty")
+
     def gain_experience(self, amount: int):
         """Increases player's experience. Also handles leveling up."""
         self.experience += amount
@@ -91,10 +103,15 @@ class Player(Character):
         valid_items = [item for item in self.inventory if item.quantity > 0]
 
         while True:
+            print("Inventory:")
             for index, item in enumerate(valid_items):
                 print(f"{index + 1}: {item}")
+            print(f"{len(valid_items)+1}: Exit")
 
             choice = input("Choose an item: ")
+
+            if choice == str(len(valid_items) + 1):
+                break
 
             if choice in [str(i) for i in range(1, len(valid_items) + 1)]:
                 self.use_item(valid_items[int(choice) - 1])

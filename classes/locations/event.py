@@ -23,6 +23,14 @@ class Event(GameElement):
         while True:
             self.choices.display_choices()
             choice = input("Which choice do you make?")
+
+            if choice == "inventory":
+                self.player.display_inventory()
+                continue
+            if choice == "status":
+                self.player.display_status()
+                continue
+
             try:
                 choice_num = int(choice)
 
@@ -74,7 +82,7 @@ class EventOutcome:
         """Apply the outcome to a player."""
         print(self.description)
         player.hp += self.health_change
-        player.gold += self.gold_change
+        player.gold += int(self.gold_change)
         player.special_status = self.special_effect
         for item in self.items:
             player.add_items(item)
@@ -94,7 +102,7 @@ class EventOutcome:
 
     def can_apply(self, player: Player) -> bool:
         """Check if this outcome can be applied to the player."""
-        if self.gold_change < 0 and player.gold < abs(self.gold_change):
+        if int(self.gold_change) < 0 and player.gold < abs(self.gold_change):
             print("You don't have enough gold!")
             return False
         if self.lose_item and self.lose_item not in player.inventory:

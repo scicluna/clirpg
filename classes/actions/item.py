@@ -25,13 +25,17 @@ class Item:
         """Use the item and apply its effects to the player."""
         if self.type == ItemType.WEAPON:
             # Equip or use weapon; increase player's dmg by self.dmg
+            print(f"Equipped {self.name}!")
             player.equip_weapon(self)
             pass
         elif self.type == ItemType.ARMOR:
+            # Equip or use armor; increase player's defense by self.defense
+            print(f"Equipped {self.name}!")
             player.equip_armor(self)
             pass
         elif self.type == ItemType.CONSUMABLE:
             # Use consumable item; increase player's health by self.healing
+            print(f"Used {self.name}!")
             self.quantity -= 1
             if self.quantity <= 0:
                 player.inventory.remove(self)

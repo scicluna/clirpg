@@ -10,7 +10,8 @@ def main():
     player = Player(name='HERO', hp=40, mp=5, damage=2, defense=0)
 
     # Set up the game world.
-    nodes = allparse(1, player)
+    ### tier 999 is demo1
+    nodes = allparse(999, player)
     current_node = nodes[0]
     
     # Main game loop.
