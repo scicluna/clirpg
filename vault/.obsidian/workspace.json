@@ -8,147 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "57314c4c190738f4",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "002670ea2e33e330",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "t999/nodes/1. The Wandering Hills.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f8a0a233c2b8c797",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Node_Template (number. name).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cd0c33d5ed9ab4e5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Event_Template (eventname).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c4d6f04f499e6aa3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Item_Template (itemname).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "aa5520ae6e1a637a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Monster_Template (monstername).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0bb2b7757573aab9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Node_Template (number. name).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b9a803b021c0d32a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Encounter_Template (encounter name).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "67e51de996468b1f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Encounter_Template (encounter name).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5bd706d3b22248c9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Event_Template (eventname).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b8de6126bf695143",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "t999/nodes/1. The Wandering Hills.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "72b11bdde0a82008",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "t999/nodes/1. The Wandering Hills.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "21c41f7810fbde33",
+            "id": "521f2370dfd57b42",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -160,55 +20,31 @@
             }
           },
           {
-            "id": "a3c6e93f95ed0ff7",
+            "id": "ef4153327936b750",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t999/nodes/4. Sunlit Clearing.md",
+                "file": "t999/monsters/Serpent of the Depths.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "c22f9859901dd3c3",
+            "id": "b8fb6b9250ea3f1b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t999/nodes/5. Shadowed Path.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c6f0dd885814d470",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "t999/towns/Elven Outpost.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "521f2370dfd57b42",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "t999/events/The Mysterious Fog.md",
+                "file": "t999/monsters/River Scalehunter.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 16
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -274,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "t999/events/The Mysterious Fog.md",
+                "file": "t999/monsters/Serpent of the Depths.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -291,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "t999/events/The Mysterious Fog.md",
+                "file": "t999/monsters/Serpent of the Depths.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -314,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "t999/events/The Mysterious Fog.md"
+                "file": "t999/monsters/Serpent of the Depths.md"
               }
             }
           }
@@ -335,28 +171,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "521f2370dfd57b42",
+  "active": "ef4153327936b750",
   "lastOpenFiles": [
-    "t999/nodes/1. The Wandering Hills.md",
-    "t999/events/The Mysterious Fog.md",
-    "t999/events/Ancient Altar Ritual.md",
-    "t999/nodes/5. Shadowed Path.md",
-    "t999/nodes/4. Sunlit Clearing.md",
-    "t999/nodes/3. Whispering Grove.md",
+    "t999/encounters/River Serpents Ambush.md",
+    "t999/monsters/Serpent of the Depths.md",
     "t999/nodes/2. Glimmering River.md",
-    "templates/Event_Template (eventname).md",
-    "templates/Town_Template (townname).md",
+    "t999/nodes/1. The Wandering Hills.md",
+    "t999/monsters/River Scalehunter.md",
+    "templates/Monster_Template (monstername).md",
     "templates/Node_Template (number. name).md",
     "t999/towns/Elven Outpost.md",
+    "t999/nodes/5. Shadowed Path.md",
+    "t999/nodes/4. Sunlit Clearing.md",
+    "templates/Event_Template (eventname).md",
+    "templates/Encounter_Template (encounter name).md",
+    "templates/Item_Template (itemname).md",
+    "t999/events/The Mysterious Fog.md",
+    "t999/events/Ancient Altar Ritual.md",
+    "t999/nodes/3. Whispering Grove.md",
+    "templates/Town_Template (townname).md",
     "t999/events/Night of Tales.md",
     "t999/encounters/Thieves' Ambush.md",
-    "t999/encounters/River Serpents Ambush.md",
     "t999/encounters",
     "t1/encounter/Thieves' Ambush.md",
     "t1/encounter/River Serpents Ambush.md",
-    "templates/Monster_Template (monstername).md",
-    "templates/Encounter_Template (encounter name).md",
-    "templates/Item_Template (itemname).md",
     "templates",
     "t999/towns",
     "t1/encounter",
@@ -369,8 +207,6 @@
     "2. Wern's Woods.md",
     "9. The City of Terna.md",
     "3. The King's Road.md",
-    "1. The Town of Loreva.md",
-    "5. Goblin's Lair.md",
-    "4. Roes River Crossing.md"
+    "1. The Town of Loreva.md"
   ]
 }

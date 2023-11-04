@@ -15,7 +15,7 @@ class Character:
         """Reduces the character's hp by the given damage, after accounting for defense. Returns the net damage dealt."""
         net_damage = max(damage - self.defense, 0)
         self.hp -= net_damage
-        print(f"{self.name} took {net_damage} damage!")
+        print(f"{self.name.title()} took {net_damage} damage!")
         return net_damage  # might be useful to know how much damage was actually dealt
 
     def generic_attack(current_character: "Character", target: "Character") -> int:

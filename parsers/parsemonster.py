@@ -3,7 +3,7 @@ from ..classes.entities.monster import Monster
 
 def parse_monster_file(file_path, item_dict):
     # Extract the monster's name from the file name, assuming the format is "monstername.md"
-    monster_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').title()
+    monster_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').lower()
 
     with open(file_path, 'r') as file:
         lines = file.readlines()

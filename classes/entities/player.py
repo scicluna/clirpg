@@ -9,6 +9,7 @@ class Player(Character):
         super().__init__(name, hp, damage, defense)
         self.maxhp = hp
         self.mp = mp
+        self.maxmp = mp
         self.experience = experience
         self.level = level
         self.attacks = [{"name": "Attack", "action": self.generic_attack}, {
@@ -58,7 +59,7 @@ class Player(Character):
 
                 if len(alive_targets) > 1:
                     for index, tgt in enumerate(alive_targets):
-                        print(f"{index + 1}: {tgt.name}")
+                        print(f"{index + 1}: {tgt.name.title()}")
 
                     while not target:  # Loop until a valid target is selected
                         target_choice = input("Choose your target: ")
@@ -96,7 +97,7 @@ class Player(Character):
         else:
             raise ValueError(f"Spell '{new_spell}' does not exist!")
 
-    def open_inventory_menu(self):
+    def open_inventory_menu(self, targets: list[Character]):
         """View player inventory and executes the choice"""
 
         # Filter out items with 0 quantity

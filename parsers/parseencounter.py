@@ -9,9 +9,9 @@ def parse_monster_list(monster_section, monster_dict):
     for line in monster_lines:
         if line.startswith('[[') and line.endswith(']]'):
             # Get the monster name from the Obsidian markdown link
-            monster_name = line.strip('[]')
+            monster_name = line.strip('[]').lower()
             # Get the monster object from the dictionary, if it exists
-            monster = monster_dict.get(monster_name.strip())
+            monster = monster_dict.get(monster_name)
             if monster:
                 # Deepcopy to prevent shared state if multiple encounters have the same monster type
                 monsters.append(deepcopy(monster))

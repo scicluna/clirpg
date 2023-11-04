@@ -10,27 +10,40 @@ class Encounter(GameElement):
         self.player = player
         self.completed = completed
 
+
     def display_status(self):
-        """Display status of player and monsters"""
+        """Display status of player and monsters, aligned with player's status sections."""
+        player_name = f"{self.player.name.title()}"
+        player_hp = f"hp: {self.player.hp}/{self.player.maxhp}"
+        player_mp = f"mp: {self.player.mp}/{self.player.maxmp}"
 
-        # Width of each block for status display
-        block_width = 30
+        # Create a list of alive monsters
+        monsters = [(monster.name.title(), f"{monster.hp}") for monster in self.monsters if monster.is_alive()]
 
-        # Display player status on left
-        player_status = f"{self.player.name}\n{self.player.hp} / {self.player.maxhp}"
-        if self.player.special_status:
-            player_status += f"\n{self.player.special_status}"
-        print(player_status.ljust(block_width), end="")
+        # Determine the maximum number of lines to print based on the player and monsters count
+        max_lines = max(4, len(monsters))
 
-        # Display options block in the middle (can be blank or contain action options)
-        options = "\n"  # Placeholder for future actions, e.g. "1: Attack, 2: Magic"
-        print(options.center(block_width), end="")
+        for i in range(max_lines):
+            if i == 0:
+                # Always print player's name and first monster if available
+                monster_info = f"{monsters[i][0]} {monsters[i][1]}" if i < len(monsters) else ""
+                print(f"{player_name}           {monster_info}")
+            elif i == 1:
+                # Print player's HP and second monster if available
+                monster_info = f"{monsters[i][0]} {monsters[i][1]}" if i < len(monsters) else ""
+                print(f"{player_hp}      {monster_info}")
+            elif i == 2:
+                # Print player's MP and third monster if available
+                monster_info = f"{monsters[i][0]} {monsters[i][1]}" if i < len(monsters) else ""
+                print(f"{player_mp}      {monster_info}")
+            elif i == 3:
+                # Fourth line for fourth monster if available
+                monster_info = f"{monsters[i][0]} {monsters[i][1]}" if i < len(monsters) else ""
+                print(f"              {monster_info}")
+            elif i > 3:
+                # Additional monsters if there are more than four
+                print(f"              {monsters[i][0]} {monsters[i][1]}")
 
-        # Display monsters status on the right
-        for monster in self.monsters:
-            monster_status = f"{monster.name}\n{monster.hp} HP"
-            print(monster_status.rjust(block_width), end="")
-        print()  # Move to the next line after displaying all statuses
 
     def player_turn(self):
         """Handles player's turn"""
@@ -53,7 +66,7 @@ class Encounter(GameElement):
 
     def trigger(self):
         """Start the encounter."""
-        print("An encounter has started!")
+        print("An encounter has started!\n")
         while not self.is_encounter_resolved():
             self.display_status()
             self.player_turn()
