@@ -57,8 +57,6 @@ def connect_nodes(nodes_dict, connections_data):
         if not node:
             raise ValueError(f"Node named '{node_name}' is not defined.")
         
-        print(connection_lines)
-            
         for connected_node_number, connected_node_name, distance in connection_lines:
             connected_node = next(
                 (n for n in nodes_dict.values() if n.number == connected_node_number and n.name == connected_node_name),
@@ -68,10 +66,8 @@ def connect_nodes(nodes_dict, connections_data):
             if not connected_node:
                 raise ValueError(f"Node '{connected_node_number}. {connected_node_name}' is not defined.")
                 
-            print(f"Connecting {node.name} to {connected_node.name} with distance {distance}")
             node.connect_nodes(connected_node, distance)
 
-    print("All nodes connected successfully.")
 
 
 def parse_all_nodes(nodes_texts, event_dict, encounter_dict, town_dict):

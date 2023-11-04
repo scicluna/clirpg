@@ -20,25 +20,27 @@ def parse_event_outcome(outcome_description, arguments, item_dict, monster_dict)
         "hp" : 0
     }
 
+    items_pattern = re.compile(r'\\\[\[\[(.*?)\]\]\]')
+    monsters_pattern = re.compile(r'\\\[\[\[(.*?)\]\]\]')
+
     for arg in arguments:
         key, value = arg.split('=')
         key = key.replace('-', '').lower().strip()
-        value = value.replace('-', '').lower().strip()
 
         if key == 'items':
-            # Assuming value is a comma-separated list of item names
-            item_names = value.split(',')
-            items = [item_dict[item_name.strip()] for item_name in item_names if item_name.strip() in item_dict]
+            item_matches = items_pattern.findall(value)
+            items = [item_dict[item_name.strip().lower()] for item_name in item_matches if item_name.strip().lower() in item_dict]
             effects["items"] = items
-
         elif key == 'monsters':
-            # Assuming value is a comma-separated list of monster names
-            monster_names = value.split(',')
-            monsters = [monster_dict[monster_name.strip()] for monster_name in monster_names if monster_name.strip() in monster_dict]
+            monster_matches = monsters_pattern.findall(value)
+            monsters = [monster_dict[monster_name.strip().lower()] for monster_name in monster_matches if monster_name.strip().lower() in monster_dict]
             effects["monsters"] = monsters
-
         else:
-            effects[key] = value
+            # Convert numeric values to integers
+            if value.isdigit():
+                effects[key] = int(value)
+            else:
+                effects[key] = value
         
     # Create the EventOutcome object with all the gathered information
     return EventOutcome(outcome_description, items=effects["items"], special_effect=effects["special_effect"],

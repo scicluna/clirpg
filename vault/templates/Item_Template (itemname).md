@@ -2,7 +2,7 @@
 (Item Description)
 
 ## Type:
-(Item Type)
+(weapon/armor/consumable/special)
 
 ## Stats:
 (dmg = 0)

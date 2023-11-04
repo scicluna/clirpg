@@ -16,6 +16,7 @@ class Event(GameElement):
     def trigger(self):
         # Present the event to the player
         print(self.description)
+        print('')
         return self.resolve_choice()
 
     def resolve_choice(self):
@@ -80,8 +81,8 @@ class EventOutcome:
 
     def apply(self, player: Player):
         """Apply the outcome to a player."""
-        print(self.description)
-        player.hp += self.health_change
+        print(f"{self.description}\n")
+        player.hp += int(self.health_change)
         player.gold += int(self.gold_change)
         player.special_status = self.special_effect
         for item in self.items:
@@ -102,7 +103,7 @@ class EventOutcome:
 
     def can_apply(self, player: Player) -> bool:
         """Check if this outcome can be applied to the player."""
-        if int(self.gold_change) < 0 and player.gold < abs(self.gold_change):
+        if int(self.gold_change) < 0 and player.gold < abs(int(self.gold_change)):
             print("You don't have enough gold!")
             return False
         if self.lose_item and self.lose_item not in player.inventory:

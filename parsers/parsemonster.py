@@ -22,11 +22,11 @@ def parse_monster_file(file_path, item_dict):
                 monster_data[current_section] = int(line)
             elif current_section == 'loot' and line.startswith('[['):
                 # Parse the item by removing the Obsidian markdown link syntax
-                item_name = line.strip('[]')
+                item_name = line.strip('[]').lower()
                 if item_name in item_dict:
                     monster_data.setdefault('loot', []).append(item_dict[item_name])
                 else:
-                    print(f"Item '{item_name}' not found in item dictionary, skipping...")
+                    print(f"Item '{item_name.title()}' not found in item dictionary, skipping...")
 
     # Create the Monster object with the extracted data
     monster = Monster(

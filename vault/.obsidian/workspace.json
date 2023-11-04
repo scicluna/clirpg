@@ -25,7 +25,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "t999/monsters/Serpent of the Depths.md",
+                "file": "t999/encounters/Thieves' Ambush.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "464974d3d7c94135",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "templates/Item_Template (itemname).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "53b02317b1e22fb2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "t999/events/The Mysterious Fog.md",
                 "mode": "source",
                 "source": false
               }
@@ -44,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -110,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "t999/monsters/Serpent of the Depths.md",
+                "file": "t999/events/The Mysterious Fog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "t999/monsters/Serpent of the Depths.md",
+                "file": "t999/events/The Mysterious Fog.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "t999/monsters/Serpent of the Depths.md"
+                "file": "t999/events/The Mysterious Fog.md"
               }
             }
           }
@@ -171,27 +195,31 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ef4153327936b750",
+  "active": "53b02317b1e22fb2",
   "lastOpenFiles": [
-    "t999/encounters/River Serpents Ambush.md",
+    "[Potion.md",
+    "t999/events/The Mysterious Fog.md",
+    "t999/items/Potion.md",
+    "t999/monsters/Cutthroat Bandit.md",
+    "t999/monsters/Shadow Stalker.md",
+    "templates/Item_Template (itemname).md",
+    "templates/Monster_Template (monstername).md",
+    "t999/encounters/Thieves' Ambush.md",
+    "t999/nodes/5. Shadowed Path.md",
+    "t999/nodes/3. Whispering Grove.md",
+    "t999/nodes/4. Sunlit Clearing.md",
+    "t999/events/Night of Tales.md",
+    "t999/towns/Elven Outpost.md",
     "t999/monsters/Serpent of the Depths.md",
+    "t999/encounters/River Serpents Ambush.md",
     "t999/nodes/2. Glimmering River.md",
     "t999/nodes/1. The Wandering Hills.md",
     "t999/monsters/River Scalehunter.md",
-    "templates/Monster_Template (monstername).md",
     "templates/Node_Template (number. name).md",
-    "t999/towns/Elven Outpost.md",
-    "t999/nodes/5. Shadowed Path.md",
-    "t999/nodes/4. Sunlit Clearing.md",
     "templates/Event_Template (eventname).md",
     "templates/Encounter_Template (encounter name).md",
-    "templates/Item_Template (itemname).md",
-    "t999/events/The Mysterious Fog.md",
     "t999/events/Ancient Altar Ritual.md",
-    "t999/nodes/3. Whispering Grove.md",
     "templates/Town_Template (townname).md",
-    "t999/events/Night of Tales.md",
-    "t999/encounters/Thieves' Ambush.md",
     "t999/encounters",
     "t1/encounter/Thieves' Ambush.md",
     "t1/encounter/River Serpents Ambush.md",
@@ -203,10 +231,6 @@
     "t999/events",
     "t999/nodes",
     "t999",
-    "6. The Stepping Stones.md",
-    "2. Wern's Woods.md",
-    "9. The City of Terna.md",
-    "3. The King's Road.md",
-    "1. The Town of Loreva.md"
+    "6. The Stepping Stones.md"
   ]
 }

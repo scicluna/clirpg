@@ -3,31 +3,32 @@ import re
 from ..classes.actions.item import Item, ItemType
 
 def parse_item_file(file_path):
-    item_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').title()
+    item_name = os.path.basename(file_path).replace('.md', '').replace('_', ' ').lower()
 
     with open(file_path, 'r') as file:
         content = file.read()
 
     # Regular expressions to match different parts of the template
-    description_regex = re.compile(r'## Description:\n(.+)', re.MULTILINE)
-    type_regex = re.compile(r'## Type:\n(.+)', re.MULTILINE)
-    stats_regex = re.compile(r'## Stats:\n((?:\(.*\)\n?)*)', re.MULTILINE)
-    special_regex = re.compile(r'## Special:\n(.*)', re.MULTILINE)
+    description_regex = re.compile(r'## Description:\s*(.*)', re.MULTILINE)
+    type_regex = re.compile(r'## Type:\s*(.*)', re.MULTILINE)
+    stats_regex = re.compile(r'## Stats:\s*((?:\w+ = \d+\n?)*)', re.MULTILINE)
+    special_regex = re.compile(r'## Special:\s*(.*)', re.MULTILINE)
 
     # Find matches
     description_match = description_regex.search(content)
     type_match = type_regex.search(content)
     stats_match = stats_regex.search(content)
     special_match = special_regex.search(content)
-
+ 
     # Parse stats
     stats = {}
+
     if stats_match:
         stats_lines = stats_match.group(1).strip().split('\n')
         for line in stats_lines:
-            key, value = line.strip('()').split(' = ')
+            key, value = line.lower().split(' = ')
             stats[key] = int(value) if value.isdigit() else value  # Assuming all stats are integers
-
+            
     # Creating the item object
     item = Item(
         name= item_name,

@@ -27,7 +27,7 @@ class Player(Character):
         """Displays player's inventory"""
         print("Inventory:")
         for item in self.inventory:
-            print(f"{item.quantity}x {item}")
+            print(f"{item}")
         if len(self.inventory) == 0:
             print("Empty")
 
